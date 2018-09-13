@@ -1,0 +1,27 @@
+buildscript {
+    ext {
+        kotlin_ver = '1.2.70'
+        retrofit_ver = '2.4.0'
+        glide_ver = '4.8.0'
+    }
+    repositories {
+        google()
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:3.2.0-rc03'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_ver"
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        jcenter()
+        maven { url "https://jitpack.io" }
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
