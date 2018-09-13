@@ -1,3 +1,16 @@
 <resources>
     <string name="app_name">Wallpapers</string>
+    <string name="set">Set</string>
+    <string name="save_image">Save Image</string>
+    <string name="share_image">Share Image</string>
+    <string name="unable_to_load">Unable to load data</string>
+    <string name="retry">Retry</string>
+    <string name="no_apps_for_share">No apps for share</string>
+    <string name="setting_up_wallpaper">Setting up the wallpaper</string>
+    <string name="saving_wallpaper">Saving the wallpaper</string>
+    <string name="unable_to_save_permission">Unable to save without permission</string>
+    <string name="saved">Saved</string>
+    <string name="not_loaded_yet">Not loaded yet</string>
+    <string name="wallpaper_set">Wallpaper set</string>
+    <string name="set_as">Set as</string>
 </resources>
