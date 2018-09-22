@@ -1,33 +1,35 @@
 package com.illuzor.lesson.wallpapers.screens
 
-import android.content.Intent
 import android.os.Bundle
 import androidx.lifecycle.ViewModelProviders
-import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.illuzor.lesson.wallpapers.R
-import com.illuzor.lesson.wallpapers.adapters.CategoriesAdapter
-import com.illuzor.lesson.wallpapers.model.ViewModelCategories
+import com.illuzor.lesson.wallpapers.adapters.GalleryAdapter
+import com.illuzor.lesson.wallpapers.model.ViewModelGallery
 import com.illuzor.lesson.wallpapers.model.ViewModelBase.State.*
 import kotlinx.android.synthetic.main.fragment_list.*
 
-class CategoriesFragment : AbstractFragment() {
+class GalleryFragment : AbstractFragment() {
 
     override val layoutId = R.layout.fragment_list
-    private val adapter = CategoriesAdapter()
-    private lateinit var model: ViewModelCategories
+    private lateinit var category: String
+    private lateinit var adapter: GalleryAdapter
+    private lateinit var model: ViewModelGallery
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        model = ViewModelProviders.of(this).get(ViewModelCategories::class.java)
+
+        category = arguments!!.getString("category", "")
+        adapter = GalleryAdapter(category)
+        model = ViewModelProviders.of(this).get(ViewModelGallery::class.java)
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
         contentView = recycler_view
-        recycler_view.layoutManager = GridLayoutManager(context, 2)
+        recycler_view.layoutManager = LinearLayoutManager(context)
         recycler_view.adapter = adapter
-
         checkData()
     }
 
@@ -38,7 +40,7 @@ class CategoriesFragment : AbstractFragment() {
             CREATED -> {
                 showProgress()
                 model.setListener { checkData() }
-                model.load()
+                model.load(category)
             }
 
             PROGRESS -> {
@@ -46,24 +48,20 @@ class CategoriesFragment : AbstractFragment() {
                 model.setListener { checkData() }
             }
 
+            LOADED -> {
+                showContent()
+                adapter.addItems(model.data)
+                adapter.setOnclickListener { filename ->
+
+                }
+            }
+
             ERROR -> {
                 showError(R.string.unable_to_load) {
                     showProgress()
                     model.setListener { checkData() }
-                    model.load()
+                    model.load(category)
                 }
-            }
-
-            LOADED -> {
-                adapter.addItems(model.data.sortedBy { it.name })
-                showContent()
-
-                adapter.setOnclickListener { category ->
-                    val intent = Intent(context, GalleryActivity::class.java)
-                    intent.putExtra("category", category)
-                    startActivity(intent)
-                }
-
             }
         }
     }
