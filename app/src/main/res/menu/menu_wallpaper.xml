@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <item
+        android:id="@+id/menu_item_set_wallpaper"
+        android:orderInCategory="0"
+        android:title="@string/set"
+        app:showAsAction="always"
+        tools:ignore="AppCompatResource" />
+
+    <item
+        android:id="@+id/menu_item_share_image"
+        android:icon="@drawable/ic_share"
+        android:orderInCategory="1"
+        android:title="@string/share_image"
+        app:showAsAction="ifRoom"
+        tools:ignore="AppCompatResource" />
+
+    <item
+        android:id="@+id/menu_item_save_image"
+        android:icon="@drawable/ic_save"
+        android:orderInCategory="2"
+        android:title="@string/save_image"
+        app:showAsAction="ifRoom"
+        tools:ignore="AppCompatResource" />
+</menu>

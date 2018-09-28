@@ -1,5 +1,6 @@
 package com.illuzor.lesson.wallpapers.screens
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -52,7 +53,10 @@ class GalleryFragment : AbstractFragment() {
                 showContent()
                 adapter.addItems(model.data)
                 adapter.setOnclickListener { filename ->
-
+                    val intent = Intent(context, WallpaperActivity::class.java)
+                    intent.putExtra("filename", filename)
+                    intent.putExtra("category", category)
+                    startActivity(intent)
                 }
             }
 
