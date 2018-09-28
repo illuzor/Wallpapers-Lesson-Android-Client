@@ -1,6 +1,6 @@
 buildscript {
     ext {
-        kotlin_ver = '1.2.70'
+        kotlin_ver = '1.2.71'
         retrofit_ver = '2.4.0'
         glide_ver = '4.8.0'
     }
@@ -9,7 +9,7 @@ buildscript {
         jcenter()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.2.0-rc03'
+        classpath 'com.android.tools.build:gradle:3.2.0'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_ver"
     }
 }

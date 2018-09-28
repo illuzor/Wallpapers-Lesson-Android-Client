@@ -30,10 +30,10 @@ dependencies {
 
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_ver"
 
-    implementation "androidx.appcompat:appcompat:1.0.0-rc02"
-    implementation "androidx.recyclerview:recyclerview:1.0.0-rc02"
+    implementation "androidx.appcompat:appcompat:1.0.0"
+    implementation "androidx.recyclerview:recyclerview:1.0.0"
     implementation "androidx.constraintlayout:constraintlayout:2.0.0-alpha2"
-    implementation "androidx.lifecycle:lifecycle-extensions:2.0.0-rc01"
+    implementation "androidx.lifecycle:lifecycle-extensions:2.0.0"
 
     implementation "com.squareup.retrofit2:retrofit:$retrofit_ver"
     implementation "com.squareup.retrofit2:converter-gson:$retrofit_ver"
