@@ -24,6 +24,16 @@
         </activity>
         <activity android:name=".screens.GalleryActivity" />
         <activity android:name=".screens.WallpaperActivity"/>
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="com.illuzor.lesson.wallpapers.SHARE_WALLPAPER"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/files" />
+        </provider>
     </application>
 
 </manifest>
