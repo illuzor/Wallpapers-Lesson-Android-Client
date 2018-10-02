@@ -74,9 +74,7 @@ class WallpaperFragment : AbstractFragment() {
         if (model.state != PROGRESS && imageFile.exists()) {
             loadFileToImageView()
         } else {
-            showProgress()
-            model.setListener { checkData() }
-            model.load(relativeUrl, imageFile)
+            checkData()
         }
     }
 
